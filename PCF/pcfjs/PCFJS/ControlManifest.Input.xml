@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="Develop1" constructor="PCFJS" version="0.0.1" display-name-key="PCFJS" description-key="PCFJS description" control-type="standard">
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+    <type-group name="types">
+        <type>SingleLine.Text</type>
+        <type>Multiple</type>
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+        <type>DateAndTime.DateAndTime</type>
+        <type>TwoOptions</type>
+        <type>OptionSet</type>
+      </type-group>
+
+    <property name="jscode" display-name-key="jscode" description-key="jscode" of-type="Multiple" usage="input" required="true"/>
+    
+    <property name="inArgument1" display-name-key="inArgument1" description-key="inArgument1" of-type-group="types" usage="input" required="false" />
+    <property name="inArgument2" display-name-key="inArgument2" description-key="inArgument2" of-type-group="types" usage="input" required="false" />
+    <property name="outArgument1" display-name-key="outArgument1" description-key="outArgument1" of-type-group="types" usage="output" required="false" />
+    <property name="outArgument2" display-name-key="outArgument2" description-key="outArgument2" of-type-group="types" usage="output" required="false" />
+    <property name="debug" display-name-key="debug" description-key="debug" of-type="Multiple" usage="output" required="false" />
+    <!-- 
+      Property node's of-type attribute can be of-type-group attribute. 
+      Example:
+      <type-group name="numbers">
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+      </type-group>
+      <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type-group="numbers" usage="bound" required="true" />
+    -->
+    <resources>
+      <code path="index.ts" order="1"/>
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+      <css path="css/PCFJS.css" order="1" />
+      <resx path="strings/PCFJS.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  
+  </control>
+</manifest>
